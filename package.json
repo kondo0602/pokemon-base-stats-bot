@@ -1,0 +1,15 @@
+{
+  "name": "pokemon-base-stats-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "zip": "zip -r skill node_modules index.js package.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ask-sdk": "^2.12.1"
+  }
+}
