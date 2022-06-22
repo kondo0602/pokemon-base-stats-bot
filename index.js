@@ -21,20 +21,18 @@ const LaunchRequestHandler = {
   },
 };
 
-const AskWeatherIntentHandler = {
+const PokemonNameIntentHandler = {
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === "AskWeatherIntent"
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "PokemonNameIntent"
     );
   },
   handle(handlerInput) {
-    const speechText = "今日の天気は晴れです。";
+    const pokemonName =
+      handlerInput.requestEnvelope.request.intent.slots.pokemonName.value;
 
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .withSimpleCard("今日の天気は晴れです。", speechText)
-      .getResponse();
+    return handlerInput.responseBuilder.speak(pokemonName).getResponse();
   },
 };
 
@@ -111,7 +109,7 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
-    AskWeatherIntentHandler,
+    PokemonNameIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler
