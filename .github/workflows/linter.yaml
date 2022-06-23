@@ -12,9 +12,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
       - name: Npm Install
         name: npm install
-
       - name: ESLint
         name: eslint "**.js"
