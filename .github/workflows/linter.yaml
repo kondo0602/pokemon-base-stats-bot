@@ -1,8 +1,9 @@
 name: Lint Code Base
 
-on: pull_request:
-  types:
-    - opened
+on:
+  pull_request:
+    types:
+      - opened
 
 jobs:
   build:
@@ -16,4 +17,4 @@ jobs:
         name: npm install
 
       - name: ESLint
-        name: eslint "/**/*.js"
+        name: eslint "**.js"
