@@ -15,4 +15,4 @@ jobs:
       - name: Npm Install
         run: npm install
       - name: ESLint
-        run: npx eslint /**/*.js
+        run: npx eslint "/**/*.js"
