@@ -1,6 +1,9 @@
 name: Lint Code Base
 
-on: pull_request
+on:
+  pull_request:
+    types:
+      - opened
 
 jobs:
   build:
@@ -9,9 +12,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
       - name: Npm Install
-        name: npm install
-
-      - name: Lint Code Base
-        name: eslint "/**/*.js"
+        run: npm install
+      - name: ESLint
+        run: npx eslint index.js
